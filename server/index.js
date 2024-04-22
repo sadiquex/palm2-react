@@ -22,14 +22,12 @@ async function run() {
   // For text-only input, use the gemini-pro model
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-  let answer; // answer we get from the server
-
   // POST endpoint for receiving user input and generating text
   app.post("/api", async (req, res) => {
     try {
       const { inputData } = req.body; // Extract user input from request body
       const result = await model.generateContent(inputData); // send user input to the AI model
-      const response = await result.response;
+      const response = result.response;
       const text = response.text();
       // console.log(text);
       res.json({ text }); // Send generated text as JSON response
