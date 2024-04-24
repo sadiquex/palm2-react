@@ -12,6 +12,7 @@ const app = express();
 //     optionSuccessStatus: 200,
 //   })
 // );
+
 app.use(cors());
 
 app.use(bodyParser.json());
