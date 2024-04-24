@@ -17,5 +17,8 @@
     "express": "^4.19.2",
     "google-auth-library": "^9.8.0",
     "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "vercel": "^34.1.1"
   }
 }
