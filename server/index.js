@@ -5,15 +5,22 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-// app.use(
-//   cors({
-//     origin: true, // allow requests from any origin
-//     // credentials: true,
-//     optionSuccessStatus: 200,
-//   })
-// );
 
-app.use(cors());
+//cors
+app.use(
+  cors({
+    origin: true, // allow requests from any origin
+    credentials: true,
+    optionSuccessStatus: 200,
+  })
+);
+
+app.options("/api", (req, res) => {
+  res.set("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.set("Access-Control-Allow-Methods", "POST");
+  res.set("Access-Control-Allow-Headers", "Content-Type");
+  res.sendStatus(200);
+});
 
 app.use(bodyParser.json());
 const port = process.env.PORT || 5000; // port to run server on

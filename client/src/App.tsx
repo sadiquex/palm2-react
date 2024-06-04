@@ -19,7 +19,7 @@ function App() {
 
   // don't forget to update the url
   // const API_URL = `http://localhost:3333/api`;
-  const API_URL = `https://sadiqueai-server.vercel.app/`;
+  const API_URL = `https://sadiqueai-server.vercel.app/api`;
 
   const handleSendClick = async () => {
     if (!userInput) return; // do nothing if input is empty
@@ -51,6 +51,7 @@ function App() {
       setGeneratedText(html);
     } catch (error) {
       console.error("Error:", error);
+      setIsLoading(false);
     }
   };
 
